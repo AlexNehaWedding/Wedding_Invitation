@@ -436,7 +436,7 @@
       width: 6px; height: 6px;
       border-right: 1.5px solid var(--gold);
       border-top: 1.5px solid var(--gold);
-      transform: rotate(45deg);
+      transform: rotate(225deg);
       opacity: 0.7;
     }
     .swipe-hint-arrow span:nth-child(2) { opacity: 0.5; }
@@ -841,7 +841,8 @@
   }
 
   function goToPage(idx) {
-    if (transitioning || idx === currentPage) return;
+    if (index === currentPage || transitioning) return;
+    if ((currentPage === 0 && index === 7) || (currentPage === 7 && index === 0)) return;
     if (idx < 0 || idx >= pages.length) return;
     transitioning = true; burst(); flashPage();
     const direction = idx > currentPage ? 'forward' : 'back';
