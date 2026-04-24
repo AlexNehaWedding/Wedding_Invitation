@@ -842,7 +842,7 @@
   }
 
   function goToPage(idx) {
-    if (index === currentPage || transitioning) return;
+    if (idx === currentPage || transitioning) return;
     if ((currentPage === 0 && idx === 7) || (currentPage === 7 && idx === 0)) return;
     if (idx < 0 || idx >= pages.length) return;
     transitioning = true; burst(); flashPage();
